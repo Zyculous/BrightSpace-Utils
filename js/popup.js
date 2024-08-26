@@ -1,7 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('click', () => {
     const toggleExtensionSwitch = document.getElementById('toggle-extension');
     const toggleSlider = document.getElementById('toggle-slider');
-    const optionsButton = document.getElementById('options');
 
     // Load the saved state
     chrome.storage.sync.get('extensionEnabled', (data) => {
@@ -40,26 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSlider.addEventListener('click', () => {
         toggleExtensionSwitch.checked = !toggleExtensionSwitch.checked;
         toggleExtension();
-    });
-
-    // Navigate to the options page
-    optionsButton.addEventListener('click', () => {
-        chrome.runtime.openOptionsPage();
-    });
+    });    
 });
-const selectElement = document.getElementById("mySelect");
-
-selectElement.addEventListener("change", function() {
-  // Get the selected option
-const selectedOption = this.options[this.selectedIndex];
-
-  // Do something with the selected option
-console.log("Selected option:", selectedOption.value);
-showPage(selectedOption.value);
-});
-document.addEventListener('DOMContentLoaded', () => {
     const themes = ['default', 'Cyberpunk', 'Hacks', 'Midnight', 'MysticBlue', 'RoyalPurple'];
-    const menuButtons = document.querySelectorAll('.menu button');
+    const menuButtons = document.querySelectorAll('.menu option');
     const pages = document.querySelectorAll('.white-card');
     const defaultFontSize = 16;
     const defaultFullWidth = false;
@@ -270,4 +253,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const isChecked = event.target.checked;
         toggleBrightnessSlider(isChecked);
     });
-});
+
+const selectElement = document.getElementById("pages");
+
+selectElement.onchange = function() {
+  // Get the selected option
+const selectedOption = this.options[this.selectedIndex];
+
+  // Do something with the selected option
+showPage(selectedOption.value);
+}

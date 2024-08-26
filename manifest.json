@@ -1,0 +1,37 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "48": "icons/icon48.png"
+      },
+      "default_popup": "html/popup.html"
+   },
+   "author": "Zyculous",
+   "background": {
+      "service_worker": "js/background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/content.js", "js/background.js", "js/popup.js", "js/options.js" ],
+      "matches": [ "*://*/d2l/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "An extension to enhance Brightspace LMS with dark mode, themes and some extra features.",
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArNL+KoAF1bWasQOcGy62pgLZqlZSuiRCasz0NjqlHp0KQFheCxe5nTg5m46ABzSkyy7ANw+Ls3mXkBw+swPdcAzK8caZvuSzG7fTMId0lUVmeF+BkXIgN2SjgtWWtjaK5837wZPYJy3/xiFGY5xsxvig9o8fxZtuuqWPipYhWoXQatjtTuROJ2R2bbhU6YXeB0KfDba6wnETszD1MGrRMPpfLgKOkFk/+1NTVzEgUUAD9s9x97Asb99pcefWBOfkq3cCUZhD9i5O9K3Pupgyqv2/0nz9autInMZCMpVvm89dyACE2i+jcfg0zgXlLqPAUTRdnijx5+wkDtWLK8V4jQIDAQAB",
+   "manifest_version": 3,
+   "name": "D2L++",
+   "options_page": "html/options.html",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.3",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "images/*", "css/themes/*" ]
+   } ]
+}
